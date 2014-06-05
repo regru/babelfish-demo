@@ -4,10 +4,14 @@ table
     legend Nails example
     thead
         tr
+            th Language
             th Count
             th Phrase
     tbody
-    - for(var i = 0; i < 10; i++)
-        tr
-            td= i
-            td= t( 'main.examples.nails', { count: i } )
+    - languages = { ru_RU: 1, en_US: 1 }
+    - for (var lang in languages)
+        - for (var i = 0; i < 10; i++)
+            tr
+                td= lang
+                td= i
+                td!= l10n.t( lang, 'main.examples.nails_md', { count: i } )
