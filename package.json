@@ -1,0 +1,39 @@
+{
+  "name": "babelfish-demo",
+  "version": "0.0.0",
+  "description": "babelfish demo",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "make test",
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:regru/babelfish-demo.git"
+  },
+  "author": "REG.RU LLC",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "bower": "1.3.4",
+    "grunt": "0.4.1",
+    "grunt-contrib-cssmin": "0.7.0",
+    "grunt-contrib-less": "0.8.1",
+    "grunt-contrib-coffee": "0.7.0",
+    "grunt-contrib-uglify": "0.2.7",
+    "grunt-npm-install": "0.1.0",
+    "grunt-browserify": "2.0.7",
+    "babelfish": "1.0.1",
+    "marked": "0.3.2",
+    "glob": "4.0.0",
+    "traverse": "0.6.6",
+    "strftime": "0.8.0"
+  },
+  "engines": {
+    "node": ">= 0.10.0 < 0.11",
+    "npm": ">= 1.3.0 < 1.4"
+  }
+}
