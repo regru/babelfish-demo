@@ -1,4 +1,8 @@
 title: nodeca/babelfish demo
+intro_md: |
+    This is i18n demo of [nodeca/babelfish](https://github.com/nodeca/babelfish) library
+    on client side using [Jade](http://jade-lang.com) template engine
+    and [marked](https://github.com/chjj/marked) renderer.
 table:
     caption: Internationalization examples
     locale: Locale
