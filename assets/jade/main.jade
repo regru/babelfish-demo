@@ -1,1 +1,13 @@
 h1= t( 'main.title' )
+
+table
+    legend Nails example
+    thead
+        tr
+            th Count
+            th Phrase
+    tbody
+    - for(var i = 0; i < 10; i++)
+        tr
+            td= i
+            td= t( 'main.examples.nails', { count: i } )

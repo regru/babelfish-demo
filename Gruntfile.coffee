@@ -142,8 +142,8 @@ module.exports = (grunt) ->
       translations = grunt.file.readYAML "config/locales/#{folder}#{file}"
 
       # md
-      traverse(translations).forEach (value) ->
-        if typeof value is 'string'
+      traverse(translations).forEach (value, key) ->
+        if /_md$/.exec(key) && typeof value is 'string'
           @update marked( value, { renderer: renderer } )
 
       b.addPhrase locale, dict, translations
