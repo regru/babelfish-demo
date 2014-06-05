@@ -1,5 +1,9 @@
 title: nodeca/babelfish demo
-table_caption: Internationalization examples
+table:
+    caption: Internationalization examples
+    locale: Locale
+    value: Value
+    phrase: Phrase
 examples:
     nails_md: 'I *have* ((=0 no nails|=1 a nail|#{count} nail|#{count} nails)):count'
     datetime_md: 'Now is **#{datetime}**'

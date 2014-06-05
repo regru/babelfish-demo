@@ -3,12 +3,12 @@ div.container
     h1= t( 'main.title' )
 
     table.table
-        caption= t('main.table_caption')
+        caption= t('main.table.caption')
         thead
             tr
-                th Language
-                th Value
-                th Phrase
+                th= t('main.table.locale')
+                th= t('main.table.value')
+                th= t('main.table.phrase')
         tbody
         - datetime  = new Date()
         - each locale in [ 'en-US', 'ru-RU' ]
