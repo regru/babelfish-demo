@@ -16,3 +16,12 @@ grunt
 ```
 
 You may need to open compiled `static/index.html`.
+
+## How to publish
+
+Compiled demo may be published on GitHub Pages using
+
+```bash
+cd $REPO_PATH
+grunt publish
+```
