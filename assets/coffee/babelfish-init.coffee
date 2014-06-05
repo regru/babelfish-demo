@@ -4,14 +4,14 @@ do (window) ->
     BabelFish = require 'babelfish'
     strftime  = require 'strftime'
 
-    locale = window.lang
+    locale = 'en_US'
 
-    window.l10n = l10n = BabelFish locale
+    window.l10n = l10n = BabelFish 'en'
 
     l10n.setFallback 'ru_RU', [ 'ru' ]
     l10n.setFallback 'en_US', [ 'en' ]
 
-    window.b_t = t = (args...) ->
+    window.t = t = (args...) ->
         l10n.t.apply l10n, [ locale ].concat(args)
 
     l10n.datetime = ( dt, format, options ) ->
@@ -42,6 +42,6 @@ do (window) ->
     # export module
     module.exports =
         l10n: l10n
-        t: b_t
+        t: t
 
     null

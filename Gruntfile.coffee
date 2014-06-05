@@ -10,7 +10,7 @@ jadeMap = [
   expand: true
   cwd: 'assets/jade'
   src: [ '**/*.jade' ]
-  dest: 'assets/javascripts/'
+  dest: 'assets/javascripts/templates'
   ext: '.jade.js'
 ]
 
@@ -20,9 +20,16 @@ jsMap =
   'static/javascripts/shims/es5-shim.js': 'bower_components/es5-shim/es5-shim.js'
   # /shims
   'static/javascripts/main.js': [
+    'bower_components/jquery/jquery.js'
+    'node_modules/grunt-contrib-jade/node_modules/jade/runtime.js'
+    'assets/javascripts/renderer.coffee.js'
     'assets/javascripts/babelfish.js'
     'assets/javascripts/l10n/formatting.en_US.js'
     'assets/javascripts/l10n/formatting.ru_RU.js'
+    'assets/javascripts/l10n/main.en_US.js'
+    'assets/javascripts/l10n/main.ru_RU.js'
+    'assets/javascripts/templates/main.jade.js'
+    'assets/javascripts/main.coffee.js'
   ]
 
 path = require 'path'
