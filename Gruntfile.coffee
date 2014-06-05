@@ -12,6 +12,15 @@ jsMap =
   'static/javascripts/shims/es5-shim.js': 'bower_components/es5-shim/es5-shim.js'
   # /shims
 
+jadeMap = [
+  expand: true
+  cwd: 'assets/jade'
+  src: [ '**/*.jade' ]
+  dest: 'assets/javascripts/'
+  ext: '.jade.js'
+]
+
+path = require 'path'
 
 module.exports = (grunt) ->
   # Project configuration
@@ -71,9 +80,26 @@ module.exports = (grunt) ->
             ]
         files:
           jsMap
+    jade:
+      options:
+        client: true
+        self: true
+        globals: [ 'JST', 't' ]
+        basedir: path.resolve '.'
+      development:
+        options:
+          compileDebug: true
+        files:
+          jadeMap
+      production:
+        options:
+          compileDebug: false
+        files:
+          jadeMap
 
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
+  grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-npm-install'
   grunt.loadNpmTasks 'grunt-browserify'
@@ -117,6 +143,7 @@ module.exports = (grunt) ->
   grunt.registerTask 'default', [
     'npm-install'
     'coffee:default'
+    'jade:production'
     'browserify:babelfish'
     'babelfish'
     'less:production'

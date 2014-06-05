@@ -1,2 +1,3 @@
 babelfish.js
 *.coffee.js
+*.jade.js
