@@ -6,6 +6,9 @@ do (window) ->
 
     locale = 'en-US'
 
+    browserLanguage = window.navigator.userLanguage || window.navigator.language || ''
+    locale = 'ru-RU'  if /^ru\b/.test(browserLanguage)
+
     window.l10n = l10n = BabelFish 'en'
 
     l10n.setFallback 'ru-RU', [ 'ru' ]
@@ -13,7 +16,7 @@ do (window) ->
 
     window.t = t = (key, params, _locale) ->
         _locale = locale  unless _locale?
-        l10n.t.apply l10n, [ _locale, key, params ]
+        l10n.t.call l10n, _locale, key, params
 
     l10n.datetime = ( dt, format, options, _locale ) ->
         return null  unless dt && format

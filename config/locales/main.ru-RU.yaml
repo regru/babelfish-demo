@@ -1,4 +1,6 @@
 title: nodeca/babelfish демо
+table_caption: Примеры интернационализации
 examples:
     nails_md: 'У *меня* ((=0 нет гвоздей|=1 есть гвоздь|есть #{count} гвоздь|есть #{count} гвоздя|есть #{count} гвоздей)):count'
     datetime_md: 'Сейчас **#{datetime}**'
+forkme: Форкни меня на GitHub

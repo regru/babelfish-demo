@@ -3,7 +3,7 @@ div.container
     h1= t( 'main.title' )
 
     table.table
-        caption Nails example
+        caption= t('main.table_caption')
         thead
             tr
                 th Language
@@ -11,16 +11,16 @@ div.container
                 th Phrase
         tbody
         - datetime  = new Date()
-        - each lang in [ 'en-US', 'ru-RU' ]
+        - each locale in [ 'en-US', 'ru-RU' ]
             tr
-                td= lang
+                td= locale
                 td= datetime.toString()
-                td!= l10n.t( lang, 'main.examples.datetime_md', { datetime: l10n.datetime( datetime, 'time.long', {}, lang ) } )
+                td!= t( 'main.examples.datetime_md', { datetime: l10n.datetime( datetime, 'time.long', {}, locale ) }, locale )
             - each i in [ 0, 1, 2, 5, 7, 10, 11, 21 ]
                 tr
-                    td= lang
+                    td= locale
                     td= i
-                    td!= l10n.t( lang, 'main.examples.nails_md', { count: i } )
+                    td!= t( 'main.examples.nails_md', { count: i }, locale )
 
     p
-        a( href='https://github.com/regru/babelfish-demo' ) Fork me on GitHub
+        a( href='https://github.com/regru/babelfish-demo' )= t( 'main.forkme' )

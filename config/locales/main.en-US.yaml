@@ -1,4 +1,6 @@
 title: nodeca/babelfish demo
+table_caption: Internationalization examples
 examples:
     nails_md: 'I *have* ((=0 no nails|=1 a nail|#{count} nail|#{count} nails)):count'
     datetime_md: 'Now is **#{datetime}**'
+forkme: Fork me on GitHub
