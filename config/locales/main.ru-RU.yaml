@@ -1,6 +1,6 @@
 title: nodeca/babelfish демо
 intro_md: |
-    Это демонстрация возможностей i18n в библиотеке [nodeca/babelfish](https://github.com/nodeca/babelfish)
+    Это демонстрация возможностей библиотеки интернационализации [nodeca/babelfish](https://github.com/nodeca/babelfish)
     в браузерах с использованием шаблонизатора [Jade](http://jade-lang.com)
     и рендерера [marked](https://github.com/chjj/marked).
 table:
