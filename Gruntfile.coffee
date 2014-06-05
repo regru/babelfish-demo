@@ -112,7 +112,12 @@ module.exports = (grunt) ->
       index:
         files:
           'static/index.html': 'assets/jade/index.jade'
+    copy:
+      bootstrap:
+        files:
+          'static/stylesheets/bootstrap.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css'
 
+  grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-jade'
@@ -157,17 +162,21 @@ module.exports = (grunt) ->
       grunt.file.write resPath, res
       grunt.log.writeln "#{resPath} compiled."
 
-  grunt.registerTask 'index:open', 'Opens compiled index page', ->
-    spawn = require('child_process').spawn
-    done = this.async()
-    opener_process = spawn('open', ['static/index.html'])
-    opener_process.stdout.on('data', grunt.log.write)
-    opener_process.stderr.on('data', grunt.log.error)
-    opener_process.on('close', done)
 
+  runner = (task, app, params = []) ->
+    spawn = require('child_process').spawn
+    done = task.async()
+    the_process = spawn(app, params)
+    the_process.stdout.on('data', grunt.log.write)
+    the_process.stderr.on('data', grunt.log.error)
+    the_process.on('close', done)
+
+  grunt.registerTask 'index:open', 'Opens compiled index page', ->
+    runner(@, 'open', ['static/index.html'])
 
   grunt.registerTask 'default', [
     'npm-install'
+    'copy'
     'coffee:default'
     'jade:production'
     'browserify:babelfish'

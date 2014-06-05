@@ -1,17 +1,19 @@
-h1= t( 'main.title' )
+div.container
 
-table
-    legend Nails example
-    thead
-        tr
-            th Language
-            th Count
-            th Phrase
-    tbody
-    - languages = { 'ru-RU': 1, 'en-US': 1 }
-    - for (var lang in languages)
-        - for (var i = 0; i < 10; i++)
+    h1= t( 'main.title' )
+
+    table.table
+        legend Nails example
+        thead
             tr
-                td= lang
-                td= i
-                td!= l10n.t( lang, 'main.examples.nails_md', { count: i } )
+                th Language
+                th Count
+                th Phrase
+        tbody
+        - languages = { 'ru-RU': 1, 'en-US': 1 }
+        - for (var lang in languages)
+            - for (var i = 0; i < 10; i++)
+                tr
+                    td= lang
+                    td= i
+                    td!= l10n.t( lang, 'main.examples.nails_md', { count: i } )

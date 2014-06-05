@@ -12,6 +12,7 @@
   "dependencies": {
     "jquery": "1.10.1",
     "modernizr": "2.8.2",
-    "es5-shim": "2.1.0"
+    "es5-shim": "2.1.0",
+    "bootstrap": "3.1.1"
   }
 }
