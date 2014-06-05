@@ -116,6 +116,11 @@ module.exports = (grunt) ->
       bootstrap:
         files:
           'static/stylesheets/bootstrap.css': 'bower_components/bootstrap/dist/css/bootstrap.min.css'
+    'gh-pages':
+      build:
+        options:
+          base: 'static'
+        src: ['**']
 
   grunt.loadNpmTasks 'grunt-contrib-copy'
   grunt.loadNpmTasks 'grunt-contrib-less'
@@ -124,6 +129,7 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-npm-install'
   grunt.loadNpmTasks 'grunt-browserify'
+  grunt.loadNpmTasks 'grunt-gh-pages'
 
   grunt.registerTask 'babelfish', 'Compile config/locales/*.<locale>.yaml to Babelfish assets', ->
     fs = require 'fs'
@@ -174,7 +180,8 @@ module.exports = (grunt) ->
   grunt.registerTask 'index:open', 'Opens compiled index page', ->
     runner(@, 'open', ['static/index.html'])
 
-  grunt.registerTask 'default', [
+
+  grunt.registerTask 'build', [
     'npm-install'
     'copy'
     'coffee:default'
@@ -184,6 +191,14 @@ module.exports = (grunt) ->
     'less:production'
     'uglify:production'
     'jade:index'
+  ]
+
+  grunt.registerTask 'default', [
+    'build'
     'index:open'
   ]
 
+  grunt.registerTask 'publish', [
+    'build'
+    'gh-pages'
+  ]
