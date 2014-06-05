@@ -4,12 +4,12 @@ do (window) ->
     BabelFish = require 'babelfish'
     strftime  = require 'strftime'
 
-    locale = 'en_US'
+    locale = 'en-US'
 
     window.l10n = l10n = BabelFish 'en'
 
-    l10n.setFallback 'ru_RU', [ 'ru' ]
-    l10n.setFallback 'en_US', [ 'en' ]
+    l10n.setFallback 'ru-RU', [ 'ru' ]
+    l10n.setFallback 'en-US', [ 'en' ]
 
     window.t = t = (args...) ->
         l10n.t.apply l10n, [ locale ].concat(args)
