@@ -19,6 +19,11 @@ jsMap =
   # shims
   'static/javascripts/shims/es5-shim.js': 'bower_components/es5-shim/es5-shim.js'
   # /shims
+  'static/javascripts/main.js': [
+    'assets/javascripts/babelfish.js'
+    'assets/javascripts/l10n/formatting.en_US.js'
+    'assets/javascripts/l10n/formatting.ru_RU.js'
+  ]
 
 path = require 'path'
 
@@ -33,7 +38,7 @@ module.exports = (grunt) ->
             'node_modules/babelfish/lib/babelfish/pluralizer.js'
             'node_modules/babelfish/lib/babelfish.js'
             'node_modules/strftime/strftime.js'
-            'assets/js/babelfish-init.coffee.js'
+            'assets/javascripts/babelfish-init.coffee.js'
           ]
     less:
       development:
