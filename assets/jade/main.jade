@@ -10,14 +10,13 @@ div.container
                 th Value
                 th Phrase
         tbody
-        - languages = [ 'en-US', 'ru-RU' ]
         - datetime  = new Date()
-        - each lang in languages
+        - each lang in [ 'en-US', 'ru-RU' ]
             tr
                 td= lang
                 td= datetime.toString()
                 td!= l10n.t( lang, 'main.examples.datetime_md', { datetime: l10n.datetime( datetime, 'time.long', {}, lang ) } )
-            - for (var i = 0; i < 10; i++)
+            - each i in [ 0, 1, 2, 5, 7, 10, 11, 21 ]
                 tr
                     td= lang
                     td= i
