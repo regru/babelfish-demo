@@ -508,5 +508,5 @@ if("number"==typeof a.length)for(var d=0,e=a.length;e>d;d++){var g=a[d];c.push("
 }}}.call(this)}else{var e=0;for(var d in a){e++;var f=a[d];c.push("<tr><td>"+jade.escape(null==(b=f)?"":b)+"</td><td>"+jade.escape(null==(b=datetime.toString())?"":b)+"</td><td>"+(null==(b=l10n.t(f,"main.examples.datetime_md",{datetime:l10n.datetime(datetime,"time.long",{},f)}))?"":b)+"</td></tr>"),function(){var a=[0,1,2,5,7,10,11,21];
 if("number"==typeof a.length)for(var d=0,e=a.length;e>d;d++){var g=a[d];c.push("<tr><td>"+jade.escape(null==(b=f)?"":b)+"</td><td>"+jade.escape(null==(b=g)?"":b)+"</td><td>"+(null==(b=l10n.t(f,"main.examples.nails_md",{count:g}))?"":b)+"</td></tr>")
 }else{var e=0;for(var d in a){e++;var g=a[d];c.push("<tr><td>"+jade.escape(null==(b=f)?"":b)+"</td><td>"+jade.escape(null==(b=g)?"":b)+"</td><td>"+(null==(b=l10n.t(f,"main.examples.nails_md",{count:g}))?"":b)+"</td></tr>")
-}}}.call(this)}}}.call(this),c.push("</table></div>"),c.join("")},function(){!function(window){var a,b;return a=window.jQuery,b=window.document,b.title=t("main.title"),a("#surface").html(render("main"))
-}(window)}.call(this);
+}}}.call(this)}}}.call(this),c.push('</table><p><a href="https://github.com/regru/babelfish-demo">Fork me on GitHub</a></p></div>'),c.join("")},function(){!function(window){var a,b;
+return a=window.jQuery,b=window.document,b.title=t("main.title"),a("#surface").html(render("main"))}(window)}.call(this);
