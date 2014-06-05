@@ -6,12 +6,6 @@ lessMap = [
   ext: '.less.css'
 ]
 
-jsMap =
-  'static/javascripts/modernizr.js': 'bower_components/modernizr/modernizr.js'
-  # shims
-  'static/javascripts/shims/es5-shim.js': 'bower_components/es5-shim/es5-shim.js'
-  # /shims
-
 jadeMap = [
   expand: true
   cwd: 'assets/jade'
@@ -19,6 +13,12 @@ jadeMap = [
   dest: 'assets/javascripts/'
   ext: '.jade.js'
 ]
+
+jsMap =
+  'static/javascripts/modernizr.js': 'bower_components/modernizr/modernizr.js'
+  # shims
+  'static/javascripts/shims/es5-shim.js': 'bower_components/es5-shim/es5-shim.js'
+  # /shims
 
 path = require 'path'
 
@@ -82,20 +82,24 @@ module.exports = (grunt) ->
           jsMap
     jade:
       options:
-        client: true
         self: true
         globals: [ 'JST', 't' ]
         basedir: path.resolve '.'
       development:
         options:
+          client: true
           compileDebug: true
         files:
           jadeMap
       production:
         options:
+          client: true
           compileDebug: false
         files:
           jadeMap
+      index:
+        files:
+          'static/index.html': 'assets/jade/index.jade'
 
   grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
@@ -140,6 +144,15 @@ module.exports = (grunt) ->
       grunt.file.write resPath, res
       grunt.log.writeln "#{resPath} compiled."
 
+  grunt.registerTask 'index:open', 'Opens compiled index page', ->
+    spawn = require('child_process').spawn
+    done = this.async()
+    opener_process = spawn('open', ['static/index.html'])
+    opener_process.stdout.on('data', grunt.log.write)
+    opener_process.stderr.on('data', grunt.log.error)
+    opener_process.on('close', done)
+
+
   grunt.registerTask 'default', [
     'npm-install'
     'coffee:default'
@@ -148,5 +161,7 @@ module.exports = (grunt) ->
     'babelfish'
     'less:production'
     'uglify:production'
+    'jade:index'
+    'index:open'
   ]
 
