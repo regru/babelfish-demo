@@ -5,7 +5,7 @@ intro_md: |
     and [marked](https://github.com/chjj/marked) renderer.
 table:
     caption: Internationalization examples
-    locale: Locale
+    locale: '#{locale} locale'
     value: Value
     phrase: Phrase
 examples:

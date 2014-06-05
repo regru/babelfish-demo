@@ -6,23 +6,23 @@ div.container
 
     table.table
         caption= t('main.table.caption')
+        - datetime  = new Date()
+        - locales = [ 'en-US', 'ru-RU' ]
         thead
             tr
-                th= t('main.table.locale')
                 th= t('main.table.value')
-                th= t('main.table.phrase')
+                - each locale in locales
+                    th= t('main.table.locale', { locale: locale })
         tbody
-        - datetime  = new Date()
-        - each locale in [ 'en-US', 'ru-RU' ]
             tr
-                td= locale
                 td= datetime.toString()
-                td!= t( 'main.examples.datetime_md', { datetime: l10n.datetime( datetime, 'time.long', {}, locale ) }, locale )
-            - each i in [ 0, 1, 2, 5, 7, 10, 11, 21 ]
+                - each locale in locales
+                    td!= t( 'main.examples.datetime_md', { datetime: l10n.datetime( datetime, 'time.long', {}, locale ) }, locale )
+            - each i in [ 0, 1, 2, 5, 7, 10, 11, 21, 22, 25 ]
                 tr
-                    td= locale
                     td= i
-                    td!= t( 'main.examples.nails_md', { count: i }, locale )
+                    - each locale in locales
+                        td!= t( 'main.examples.nails_md', { count: i }, locale )
 
     p
         a( href='https://github.com/regru/babelfish-demo' )= t( 'main.forkme' )

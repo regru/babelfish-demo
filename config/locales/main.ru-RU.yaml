@@ -5,7 +5,7 @@ intro_md: |
     и рендерера [marked](https://github.com/chjj/marked).
 table:
     caption: Примеры интернационализации
-    locale: Локаль
+    locale: 'Локаль #{locale}'
     value: Значение
     phrase: Фраза
 examples:
