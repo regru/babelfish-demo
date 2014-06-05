@@ -1,3 +1,4 @@
 title: nodeca/babelfish demo
 examples:
     nails_md: 'I *have* ((=0 no nails|=1 a nail|#{count} nail|#{count} nails)):count'
+    datetime_md: 'Now is **#{datetime}**'

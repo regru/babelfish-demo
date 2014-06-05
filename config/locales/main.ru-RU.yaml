@@ -1,3 +1,4 @@
 title: nodeca/babelfish демо
 examples:
     nails_md: 'У *меня* ((=0 нет гвоздей|=1 есть гвоздь|есть #{count} гвоздь|есть #{count} гвоздя|есть #{count} гвоздей)):count'
+    datetime_md: 'Сейчас **#{datetime}**'
