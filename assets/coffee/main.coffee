@@ -1,6 +1,7 @@
 do (window) ->
     $ = window.jQuery
+    document = window.document
 
-    window.title = t 'main.title'
+    document.title = t 'main.title'
 
     $('#surface').html render('main')
