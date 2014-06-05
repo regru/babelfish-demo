@@ -2,6 +2,8 @@
 
 Shows common principles of internationalization using [nodeca/babelfish](https://github.com/nodeca/babelfish).
 
+Compiled version published on [GitHub Pages](https://regru.github.io/babelfish-demo/).
+
 ## How to run
 
 Simply clone this repository and run
