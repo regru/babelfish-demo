@@ -1,11 +1,3 @@
-lessMap = [
-  expand: true
-  cwd: 'assets/less'
-  src: [ '**/*.less' ]
-  dest: 'assets/stylesheets/'
-  ext: '.less.css'
-]
-
 jadeMap = [
   expand: true
   cwd: 'assets/jade'
@@ -47,17 +39,6 @@ module.exports = (grunt) ->
             'node_modules/strftime/strftime.js'
             'assets/javascripts/babelfish-init.coffee.js'
           ]
-    less:
-      development:
-        options:
-          dumpLineNumbers: "mediaquery"
-        files:
-          lessMap
-      production:
-        options:
-          dumpLineNumbers: false
-        files:
-          lessMap
     coffee:
       default:
         files: [
@@ -123,7 +104,6 @@ module.exports = (grunt) ->
         src: ['**']
 
   grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-less'
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-jade'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
@@ -188,7 +168,6 @@ module.exports = (grunt) ->
     'jade:production'
     'browserify:babelfish'
     'babelfish'
-    'less:production'
     'uglify:production'
     'jade:index'
   ]
