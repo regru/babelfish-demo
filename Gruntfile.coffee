@@ -103,13 +103,7 @@ module.exports = (grunt) ->
           base: 'static'
         src: ['**']
 
-  grunt.loadNpmTasks 'grunt-contrib-copy'
-  grunt.loadNpmTasks 'grunt-contrib-coffee'
-  grunt.loadNpmTasks 'grunt-contrib-jade'
-  grunt.loadNpmTasks 'grunt-contrib-uglify'
-  grunt.loadNpmTasks 'grunt-npm-install'
-  grunt.loadNpmTasks 'grunt-browserify'
-  grunt.loadNpmTasks 'grunt-gh-pages'
+  require('jit-grunt')(grunt)
 
   grunt.registerTask 'babelfish', 'Compile config/locales/*.<locale>.yaml to Babelfish assets', ->
     fs = require 'fs'
